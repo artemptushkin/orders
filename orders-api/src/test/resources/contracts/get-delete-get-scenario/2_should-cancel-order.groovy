@@ -11,6 +11,6 @@ Contract.make {
 		url '/order/1'
 	}
 	response {
-		status 202
+		status 204
 	}
 }

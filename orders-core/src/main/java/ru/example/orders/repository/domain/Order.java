@@ -16,7 +16,7 @@ public class Order {
     @Id
     private String id;
     @NotEmpty
-    private List<CompositeItem> items;
+    private List<Item> items;
     @Positive
     private Long merchantId;
 }

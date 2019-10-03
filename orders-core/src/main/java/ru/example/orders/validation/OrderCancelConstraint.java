@@ -11,7 +11,7 @@ import java.lang.annotation.Target;
 @Target( { ElementType.METHOD, ElementType.FIELD, ElementType.PARAMETER, ElementType.TYPE })
 @Retention(RetentionPolicy.RUNTIME)
 public @interface OrderCancelConstraint {
-	String message() default "Order is only allowed if no item of it has been already shipped";
+	String message() default "Cancellation of an order is only allowed if no item of it has been already shipped";
 	Class<?>[] groups() default {};
 	Class<? extends Payload>[] payload() default {};
 }
