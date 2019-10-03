@@ -4,4 +4,6 @@ import ru.example.orders.repository.domain.Order;
 
 public interface OrderService {
 	Order findById(String orderId);
+
+	void delete(String orderId);
 }

@@ -1,10 +1,8 @@
 package ru.example.orders.controller;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
 import ru.example.orders.repository.domain.Order;
 import ru.example.orders.service.OrderService;
 
@@ -18,5 +16,11 @@ public class OrderController {
     @GetMapping("/{orderId}")
     public Order getOrders(@PathVariable String orderId) {
         return orderService.findById(orderId);
+    }
+
+    @DeleteMapping("/{orderId}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void delete(@PathVariable String orderId) {
+        orderService.delete(orderId);
     }
 }

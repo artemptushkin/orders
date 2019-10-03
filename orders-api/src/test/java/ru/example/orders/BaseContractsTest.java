@@ -11,7 +11,7 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
 @SpringBootTest
-@ActiveProfiles(value = {"test", "mock"})
+@ActiveProfiles(value = {"mock"})
 @RunWith(SpringRunner.class)
 public abstract class BaseContractsTest {
     @Autowired

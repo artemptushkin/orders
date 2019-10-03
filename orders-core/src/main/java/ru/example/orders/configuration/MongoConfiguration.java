@@ -8,7 +8,7 @@ import org.springframework.data.mongodb.repository.config.EnableMongoRepositorie
 import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 
 @Configuration
-@Profile("dev")
+@Profile("mongodb")
 @EnableMongoRepositories("ru.example.orders.repository")
 public class MongoConfiguration {
 

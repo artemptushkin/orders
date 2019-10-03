@@ -3,7 +3,6 @@ package ru.example.orders.repository.domain;
 import lombok.Builder;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.validation.constraints.NotEmpty;
@@ -17,7 +16,7 @@ public class Order {
     @Id
     private String id;
     @NotEmpty
-    private List<Item> items;
+    private List<CompositeItem> items;
     @Positive
     private Long merchantId;
 }
