@@ -29,10 +29,10 @@ public class ApplicationStartedListener {
         orderRepository.save(
                 Order.builder()
                         .merchantId(1L)
-                        .orderId(1L)
+                        .id("1")
                         .items(List.of(
                                 Item.builder()
-                                        .itemId(1L)
+                                        .id(1L)
                                         .partitions(
                                                 List.of(
                                                         Partition.builder().status(SHIPPED).build(),
@@ -42,7 +42,7 @@ public class ApplicationStartedListener {
                                                 )
                                         ).build(),
                                 Item.builder()
-                                        .itemId(2L)
+                                        .id(2L)
                                         .partitions(
                                                 List.of(
                                                         Partition.builder().status(ORDERED).build(),
@@ -51,7 +51,7 @@ public class ApplicationStartedListener {
                                                 )
                                         ).build(),
                                 Item.builder()
-                                        .itemId(3L)
+                                        .id(3L)
                                         .partitions(
                                                 List.of(
                                                         Partition.builder().status(SHIPPED).build(),
@@ -64,10 +64,10 @@ public class ApplicationStartedListener {
         orderRepository.save(
                 Order.builder()
                         .merchantId(1L)
-                        .orderId(2L)
+                        .id("2")
                         .items(List.of(
                                 Item.builder()
-                                        .itemId(1L)
+                                        .id(1L)
                                         .partitions(
                                                 List.of(
                                                         Partition.builder().status(SHIPPED).build(),
@@ -77,7 +77,7 @@ public class ApplicationStartedListener {
                                                 )
                                         ).build(),
                                 Item.builder()
-                                        .itemId(2L)
+                                        .id(2L)
                                         .partitions(
                                                 List.of(
                                                         Partition.builder().status(ORDERED).build(),
@@ -86,7 +86,7 @@ public class ApplicationStartedListener {
                                                 )
                                         ).build(),
                                 Item.builder()
-                                        .itemId(3L)
+                                        .id(3L)
                                         .partitions(
                                                 List.of(
                                                         Partition.builder().status(SHIPPED).build(),

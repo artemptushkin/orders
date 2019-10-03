@@ -16,8 +16,6 @@ import java.util.List;
 public class Order {
     @Id
     private String id;
-    @Indexed(unique = true)
-    private Long orderId;
     @NotEmpty
     private List<Item> items;
     @Positive

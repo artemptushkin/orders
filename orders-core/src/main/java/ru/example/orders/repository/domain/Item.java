@@ -13,7 +13,7 @@ import java.util.List;
 @Builder
 public class Item {
     @Id
-    private String id;
+    private long id;
     @NotEmpty
     private List<Partition> partitions;
     @NotNull

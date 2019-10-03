@@ -7,5 +7,4 @@ import java.util.List;
 
 public interface OrderRepository extends MongoRepository<Order, String> {
     List<Order> findOrderByMerchantId(Long merchantId);
-    List<Order> findOrderByOrderId(Long merchantId);
 }
