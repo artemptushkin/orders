@@ -119,6 +119,36 @@ public class ApplicationStartedListener {
 				.build()
 		);
 
+		orderRepository.save(
+			Order.builder()
+				.merchantId(2L)
+				.id("4")
+				.items(List.of(
+					Item.builder()
+						.id(3L)
+						.description("old item")
+						.partitions(
+							List.of(
+								Partition.builder().status(SHIPPED).build(),
+								Partition.builder().status(ORDERED).build(),
+								Partition.builder().status(SHIPPED).build(),
+								Partition.builder().status(SHIPPED).build()
+							)
+						).build(),
+					Item.builder()
+						.id(4L)
+						.description("very old item")
+						.partitions(
+							List.of(
+								Partition.builder().status(ORDERED).build(),
+								Partition.builder().status(ORDERED).build(),
+								Partition.builder().status(ORDERED).build()
+							)
+						).build()
+					)
+				).build()
+		);
+
 		log.info("Saved mock-orders");
 	}
 }

@@ -1,11 +1,14 @@
 package ru.example.orders.controller;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.core.convert.ConversionService;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import ru.example.orders.controller.domain.OrderRequest;
+import ru.example.orders.repository.domain.Item;
 import ru.example.orders.repository.domain.Order;
 import ru.example.orders.service.OrderService;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/order")
@@ -13,6 +16,7 @@ import ru.example.orders.service.OrderService;
 public class OrderController {
 
 	private final OrderService orderService;
+	private final ConversionService conversionService;
 
 	@GetMapping("/{orderId}")
 	public Order getOrders(@PathVariable String orderId) {
@@ -30,7 +34,12 @@ public class OrderController {
 	public void update(@PathVariable String orderId, @RequestBody OrderRequest orderRequest) {
 		orderService.update(
 			Order.builder()
-				.items(orderRequest.getItems())
+				.items(orderRequest
+					.getItems()
+					.stream()
+					.map(itemRequest -> conversionService.convert(itemRequest, Item.class))
+					.collect(Collectors.toList())
+				)
 				.merchantId(orderRequest.getMerchantId())
 				.id(orderId)
 				.build()
