@@ -12,4 +12,6 @@ public interface OrderService {
 	void delete(@Valid @OrderCancelConstraint String orderId);
 
 	void update(Order order);
+
+	void save(Order order);
 }

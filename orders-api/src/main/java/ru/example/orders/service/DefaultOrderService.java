@@ -38,6 +38,11 @@ public class DefaultOrderService implements OrderService {
 		orderRepository.save(existedOrder);
 	}
 
+	@Override
+	public void save(Order order) {
+		orderRepository.save(order);
+	}
+
 	private <T> void applyIfNotNull(Function<T, Order> function, T newValue) {
 		if (newValue != null) {
 			function.apply(newValue);

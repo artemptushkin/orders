@@ -4,19 +4,12 @@ import org.springframework.cloud.contract.spec.Contract
 
 Contract.make {
 	request {
-		method 'GET'
+		method 'POST'
 		headers {
-			header(accept(), applicationJson())
+			header(contentType(), applicationJson())
 		}
-		url '/order/1'
-	}
-	response {
-		status 200
-		headers {
-			header(contentType(), applicationJsonUtf8())
-		}
+		url '/order'
 		body(
-			id: 1,
 			merchantId: 1,
 			items: [
 				[
@@ -51,19 +44,11 @@ Contract.make {
 							status: 'ORDERED'
 						]
 					]
-				],
-				[
-					id: 3,
-					partitions : [
-						[
-							status: 'ORDERED'
-						],
-						[
-							status: 'SHIPPED'
-						]
-					]
 				]
 			]
 		)
+	}
+	response {
+		status 400
 	}
 }
