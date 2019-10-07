@@ -10,4 +10,6 @@ public interface OrderService {
 	Order findById(String orderId);
 
 	void delete(@Valid @OrderCancelConstraint String orderId);
+
+	void update(Order order);
 }

@@ -13,13 +13,13 @@ import java.util.List;
 @Builder
 public class Item {
     @Id
-    private long id;
+    private Long id;
     @NotEmpty
-    @JsonIgnore
     private List<Partition> partitions;
     @NotNull
     private String description;
 
+    @JsonIgnore
     public Integer getOrderedQuantity() {
         if (partitions == null) {
             partitions = new ArrayList<>();

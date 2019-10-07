@@ -88,14 +88,6 @@ public class ApplicationStartedListener {
 								Partition.builder().status(ORDERED).build(),
 								Partition.builder().status(ORDERED).build()
 							)
-						).build(),
-					Item.builder()
-						.id(3L)
-						.partitions(
-							List.of(
-								Partition.builder().status(ORDERED).build(),
-								Partition.builder().status(SHIPPED).build()
-							)
 						).build()
 					)
 				).build()

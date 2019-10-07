@@ -10,6 +10,6 @@ import javax.validation.ConstraintViolationException;
 public class OrderControllerAdviser {
 
 	@ExceptionHandler(value = ConstraintViolationException.class)
-	@ResponseStatus(HttpStatus.FORBIDDEN)
+	@ResponseStatus(HttpStatus.BAD_REQUEST)
 	public void ConstraintViolationException() {}
 }

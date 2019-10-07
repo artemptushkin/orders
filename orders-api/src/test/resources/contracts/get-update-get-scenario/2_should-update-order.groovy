@@ -6,18 +6,40 @@ Contract.make {
 	request {
 		method 'PUT'
 		headers {
-			header(accept(), applicationJson())
+			header(contentType(), applicationJson())
 		}
 		url '/order/2'
 		body(
 			items: [
 				[
-					id: 3,
-					description: "old item"
+					id         : 3,
+					description: "old item",
+					partitions : [
+						[
+							status: 'SHIPPED'
+						],
+						[
+							status: 'ORDERED'
+						],
+						[
+							status: 'SHIPPED'
+						],
+						[
+							status: 'SHIPPED'
+						]
+					]
 				],
 				[
-					id: 5,
-					description: "new item"
+					id         : 5,
+					description: "new item",
+					partitions : [
+						[
+							status: 'SHIPPED'
+						],
+						[
+							status: 'SHIPPED'
+						]
+					]
 				]
 			]
 		)

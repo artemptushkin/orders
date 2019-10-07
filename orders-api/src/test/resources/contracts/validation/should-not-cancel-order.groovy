@@ -14,6 +14,6 @@ Contract.make {
 		url '/order/3'
 	}
 	response {
-		status 403
+		status 400
 	}
 }

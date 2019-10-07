@@ -16,14 +16,52 @@ Contract.make {
 			header(contentType(), applicationJsonUtf8())
 		}
 		body(
+			id: 1,
+			"merchantId": 1,
 			items: [
 				[
 					id: 1,
-					description: "wonderful item"
+					description: "wonderful item",
+					partitions : [
+						[
+							status: 'SHIPPED'
+						],
+						[
+							status: 'ORDERED'
+						],
+						[
+							status: 'SHIPPED'
+						],
+						[
+							status: 'SHIPPED'
+						]
+					]
 				],
 				[
 					id: 2,
-					description: "useful item"
+					description: "useful item",
+					partitions : [
+						[
+							status: 'ORDERED'
+						],
+						[
+							status: 'ORDERED'
+						],
+						[
+							status: 'ORDERED'
+						]
+					]
+				],
+				[
+					id: 3,
+					partitions : [
+						[
+							status: 'ORDERED'
+						],
+						[
+							status: 'SHIPPED'
+						]
+					]
 				]
 			]
 		)
