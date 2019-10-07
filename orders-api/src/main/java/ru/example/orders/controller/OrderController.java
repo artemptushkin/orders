@@ -24,9 +24,9 @@ public class OrderController {
 	private final ConversionService conversionService;
 
 	@PostMapping
-	@ResponseStatus(HttpStatus.NO_CONTENT)
-	public void update(@Valid @RequestBody @OrderCreateConstraint OrderRequest orderRequest) {
-		orderService.save(
+	@ResponseStatus(HttpStatus.CREATED)
+	public Order update(@Valid @RequestBody @OrderCreateConstraint OrderRequest orderRequest) {
+		return orderService.save(
 			Order.builder()
 				.items(getItems(orderRequest))
 				.merchantId(orderRequest.getMerchantId())

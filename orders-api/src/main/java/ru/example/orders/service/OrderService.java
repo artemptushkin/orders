@@ -13,5 +13,5 @@ public interface OrderService {
 
 	void update(Order order);
 
-	void save(Order order);
+	Order save(Order order);
 }
