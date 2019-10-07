@@ -12,6 +12,7 @@
     <artifactId>orders-api</artifactId>
 
     <dependencies>
+
         <dependency>
             <groupId>ru.example.orders</groupId>
             <artifactId>orders-core</artifactId>

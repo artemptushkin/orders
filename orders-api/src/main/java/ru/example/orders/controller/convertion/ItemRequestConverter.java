@@ -3,7 +3,7 @@ package ru.example.orders.controller.convertion;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;
 import org.springframework.util.CollectionUtils;
-import ru.example.orders.controller.domain.ItemRequest;
+import ru.example.orders.api.domain.ItemRequest;
 import ru.example.orders.repository.domain.Item;
 import ru.example.orders.repository.domain.Partition;
 import java.util.stream.Collectors;

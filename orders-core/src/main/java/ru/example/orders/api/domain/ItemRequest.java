@@ -1,4 +1,4 @@
-package ru.example.orders.controller.domain;
+package ru.example.orders.api.domain;
 
 import lombok.Builder;
 import lombok.Data;

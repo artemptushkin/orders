@@ -1,0 +1,8 @@
+orders:
+  api:
+    url: http://localhost:8080/order
+server:
+  port: 9090
+logging:
+  level:
+    ru.example.orders.status.feign: debug

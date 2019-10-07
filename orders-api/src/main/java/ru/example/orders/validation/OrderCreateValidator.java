@@ -1,6 +1,6 @@
 package ru.example.orders.validation;
 
-import ru.example.orders.controller.domain.OrderRequest;
+import ru.example.orders.api.domain.OrderRequest;
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
