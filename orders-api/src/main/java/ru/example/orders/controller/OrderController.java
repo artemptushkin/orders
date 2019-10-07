@@ -10,8 +10,6 @@ import ru.example.orders.api.domain.OrderRequest;
 import ru.example.orders.repository.domain.Item;
 import ru.example.orders.repository.domain.Order;
 import ru.example.orders.service.OrderService;
-import ru.example.orders.validation.OrderCreateConstraint;
-import javax.validation.Valid;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -27,7 +25,7 @@ public class OrderController implements OrderAPI {
 	@Override
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
-	public Order update(@Valid @RequestBody @OrderCreateConstraint OrderRequest orderRequest) {
+	public Order update(@RequestBody OrderRequest orderRequest) {
 		return orderService.save(
 			Order.builder()
 				.items(getItems(orderRequest))

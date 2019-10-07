@@ -15,6 +15,7 @@ public class Item {
     @Id
     private Long id;
     @NotEmpty
+    @JsonIgnore
     private List<Partition> partitions;
     @NotNull
     private String description;
