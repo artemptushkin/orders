@@ -3,9 +3,11 @@ package ru.example.orders.service;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import ru.example.orders.api.domain.MerchantResponse;
 import ru.example.orders.exception.OrderNotFoundException;
 import ru.example.orders.repository.OrderRepository;
 import ru.example.orders.repository.domain.Order;
+import java.util.List;
 import java.util.function.Function;
 
 @Service
@@ -41,6 +43,16 @@ public class DefaultOrderService implements OrderService {
 	@Override
 	public Order save(Order order) {
 		return orderRepository.save(order);
+	}
+
+	@Override
+	public MerchantResponse findByMerchantId(Long merchantId) {
+		List<Order> orders = orderRepository.findOrderByMerchantId(merchantId);
+		return MerchantResponse
+			.builder()
+			.merchantId(merchantId)
+			.orders(orders)
+			.build();
 	}
 
 	private <T> void applyIfNotNull(Function<T, Order> function, T newValue) {

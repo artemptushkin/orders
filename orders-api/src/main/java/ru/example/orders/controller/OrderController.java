@@ -6,6 +6,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import ru.example.orders.api.OrderAPI;
+import ru.example.orders.api.domain.MerchantResponse;
 import ru.example.orders.api.domain.OrderRequest;
 import ru.example.orders.repository.domain.Item;
 import ru.example.orders.repository.domain.Order;
@@ -15,7 +16,7 @@ import java.util.stream.Collectors;
 
 @Validated
 @RestController
-@RequestMapping("/order")
+@RequestMapping("/")
 @RequiredArgsConstructor
 public class OrderController implements OrderAPI {
 
@@ -23,7 +24,13 @@ public class OrderController implements OrderAPI {
 	private final ConversionService conversionService;
 
 	@Override
-	@PostMapping
+	@GetMapping("/merchant/{merchantId}/orders")
+	public MerchantResponse getMerchantOrders(@PathVariable Long merchantId) {
+		return orderService.findByMerchantId(merchantId);
+	}
+
+	@Override
+	@PostMapping("/order")
 	@ResponseStatus(HttpStatus.CREATED)
 	public Order update(@RequestBody OrderRequest orderRequest) {
 		return orderService.save(
@@ -35,20 +42,20 @@ public class OrderController implements OrderAPI {
 	}
 
 	@Override
-	@GetMapping("/{orderId}")
+	@GetMapping("/order/{orderId}")
 	public Order get(@PathVariable String orderId) {
 		return orderService.findById(orderId);
 	}
 
 	@Override
-	@DeleteMapping("/{orderId}")
+	@DeleteMapping("/order/{orderId}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	public void delete(@PathVariable String orderId) {
 		orderService.delete(orderId);
 	}
 
 	@Override
-	@PutMapping("/{orderId}")
+	@PutMapping("/order/{orderId}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	public void update(@PathVariable String orderId, @RequestBody OrderRequest orderRequest) {
 		orderService.update(

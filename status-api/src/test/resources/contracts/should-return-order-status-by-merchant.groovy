@@ -8,7 +8,7 @@ Contract.make {
 		headers {
 			header(accept(), applicationJson())
 		}
-		url '/status/merchant/1'
+		url '/status/merchant/4'
 	}
 	response {
 		status 200
@@ -16,10 +16,10 @@ Contract.make {
 			header(contentType(), applicationJsonUtf8())
 		}
 		body(
-			merchantId: 1,
+			merchantId: 4,
 			orders: [
 			    [
-				    id: 1,
+				    id: 5,
 				    status: 'PARTIALLY_SHIPPED',
 				    items: [
 					    [
@@ -37,7 +37,7 @@ Contract.make {
 				    ]
 			    ],
 				[
-					id: 3,
+					id: 6,
 					status: 'PARTIALLY_SHIPPED',
 					items: [
 						[

@@ -149,6 +149,70 @@ public class ApplicationStartedListener {
 				).build()
 		);
 
+		orderRepository.save(
+			Order.builder()
+				.merchantId(4L)
+				.id("5")
+				.items(List.of(
+					Item.builder()
+						.id(1L)
+						.description("wonderful item")
+						.partitions(
+							List.of(
+								Partition.builder().status(SHIPPED).build(),
+								Partition.builder().status(ORDERED).build(),
+								Partition.builder().status(SHIPPED).build(),
+								Partition.builder().status(SHIPPED).build()
+							)
+						).build(),
+					Item.builder()
+						.id(2L)
+						.description("useful item")
+						.partitions(
+							List.of(
+								Partition.builder().status(ORDERED).build(),
+								Partition.builder().status(ORDERED).build(),
+								Partition.builder().status(ORDERED).build()
+							)
+						).build(),
+					Item.builder()
+						.id(3L)
+						.partitions(
+							List.of(
+								Partition.builder().status(ORDERED).build(),
+								Partition.builder().status(SHIPPED).build()
+							)
+						).build()
+					)
+				).build()
+		);
+
+		orderRepository.save(
+			Order.builder()
+				.merchantId(4L)
+				.id("6")
+				.items(List.of(
+					Item.builder()
+						.id(3L)
+						.partitions(
+							List.of(
+								Partition.builder().status(ORDERED).build(),
+								Partition.builder().status(SHIPPED).build()
+							)
+						).build(),
+					Item.builder()
+						.id(4L)
+						.partitions(
+							List.of(
+								Partition.builder().status(SHIPPED).build(),
+								Partition.builder().status(SHIPPED).build()
+							)
+						).build()
+					)
+				)
+				.build()
+		);
+
 		log.info("Saved mock-orders");
 	}
 }

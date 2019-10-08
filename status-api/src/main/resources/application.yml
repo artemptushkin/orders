@@ -1,6 +1,6 @@
 orders:
   api:
-    url: http://localhost:8080/order
+    url: http://localhost:8080
 server:
   port: 9090
 logging:
