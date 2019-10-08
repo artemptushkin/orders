@@ -15,8 +15,7 @@ status-api: `java -jar status-api/target/status-api-0.0.1-SNAPSHOT.jar`
 
 ### Call example / health verification
 
-orders-api: `curl --request GET --url http://localhost:8080/order/2`
-
+orders-api: `curl --request GET --url http://localhost:8080/order/2`\
 status-api: `curl --request GET --url http://localhost:9090/status/order/1`
 
 For REST API calls please see [orders-api DSL contracts](./orders-api/src/test/resources/contracts/)
