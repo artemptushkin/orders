@@ -6,3 +6,6 @@ server:
 logging:
   level:
     ru.example.orders.status.feign: debug
+spring:
+  jackson:
+    default-property-inclusion: non_null

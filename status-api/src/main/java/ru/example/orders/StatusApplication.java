@@ -1,4 +1,4 @@
-package ru.example.orders.status;
+package ru.example.orders;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

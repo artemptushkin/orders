@@ -1,4 +1,4 @@
-package ru.example.orders.status.feign;
+package ru.example.orders.feign;
 
 import org.springframework.cloud.openfeign.FeignClient;
 import ru.example.orders.api.OrderAPI;

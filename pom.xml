@@ -4,9 +4,9 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<modules>
+		<module>orders-core</module>
 		<module>orders-api</module>
 		<module>status-api</module>
-		<module>orders-core</module>
 	</modules>
 
 	<parent>

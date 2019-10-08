@@ -17,6 +17,12 @@
             <artifactId>orders-core</artifactId>
             <version>${project.version}</version>
         </dependency>
+
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-contract-stub-runner</artifactId>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
     <build>
@@ -27,7 +33,7 @@
                 <version>2.1.3.RELEASE</version>
                 <extensions>true</extensions>
                 <configuration>
-                    <baseClassForTests>ru.example.orders.BaseContractsTest</baseClassForTests>
+                    <baseClassForTests>ru.example.orders.StatusBaseContractsTest</baseClassForTests>
                     <basePackageForTests>ru.example.orders</basePackageForTests>
                 </configuration>
             </plugin>
